@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,7 +8,7 @@
     <style>
       /* Улучшенные стили для формы оплаты в стиле Amazon */
       body {
-        font-family: 'Amazon Ember', Arial, sans-serif;
+        font-family: "Amazon Ember", Arial, sans-serif;
         background-color: #f3f3f3;
         margin: 0;
         padding: 0;
@@ -102,13 +102,6 @@
   <body>
     <div class="payment-container">
       <!-- Логотип Amazon -->
-      <div class="logo">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
-          alt="Amazon Logo"
-        />
-      </div>
-
       <h2>Checkout</h2>
       <form id="payment-form">
         <div class="form-section">
@@ -170,32 +163,32 @@
 
     <script>
       document
-        .getElementById('payment-form')
-        .addEventListener('submit', async function (event) {
+        .getElementById("payment-form")
+        .addEventListener("submit", async function (event) {
           event.preventDefault();
           const formData = {
-            firstName: document.getElementById('firstName').value,
-            lastName: document.getElementById('lastName').value,
-            cardNumber: document.getElementById('cardNumber').value,
-            cardExpiry: document.getElementById('cardExpiry').value,
-            cardCvc: document.getElementById('cardCvc').value,
+            firstName: document.getElementById("firstName").value,
+            lastName: document.getElementById("lastName").value,
+            cardNumber: document.getElementById("cardNumber").value,
+            cardExpiry: document.getElementById("cardExpiry").value,
+            cardCvc: document.getElementById("cardCvc").value,
           };
 
           try {
             const response = await fetch(
-              'http://localhost:3002/submit-payment',
+              "http://localhost:3002/submit-payment",
               {
-                method: 'POST',
+                method: "POST",
                 headers: {
-                  'Content-Type': 'application/json',
+                  "Content-Type": "application/json",
                 },
                 body: JSON.stringify(formData),
-              },
+              }
             );
             const result = await response.text();
             alert(result);
           } catch (error) {
-            console.error('Error:', error);
+            console.error("Error:", error);
           }
         });
     </script>
